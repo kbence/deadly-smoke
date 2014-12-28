@@ -12,13 +12,9 @@ class SmokeApp < Sinatra::Base
     serve '/js', from: 'js'
     serve '/css', from: 'css'
 
-    js :app, [
-      '/js/**/*.js'
-    ]
-
-    css :app, [
-      '/css/*.css'
-    ]
+    js :app, ['/js/smoke/**/*.js']
+    js :third_party, ['/js/lib/**/*.js']
+    css :app, ['/css/*.css']
 
     js_compression :jsmin
     css_compression :simple
